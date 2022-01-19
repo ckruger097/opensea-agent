@@ -1,6 +1,5 @@
 {
   "name": "forta-agent-starter",
-  "type": "module",
   "version": "0.0.1",
   "description": "Forta Agent Javascript starter project",
   "scripts": {
