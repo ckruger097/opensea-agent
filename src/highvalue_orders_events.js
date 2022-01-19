@@ -36,7 +36,7 @@ function providerEventTransaction(highvalueThreshold) {
                     type: FindingType.Info,
                     metadata: {
                         buyHash: highValueNFTSale.args.buyHash,
-                        sellHash: highValueNFTSale.args.sellhash,
+                        sellHash: highValueNFTSale.args.sellHash,
                         maker: highValueNFTSale.maker,
                         taker: highValueNFTSale.taker,
                         price: formattedAmount,

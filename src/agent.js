@@ -11,11 +11,7 @@ function provideHandleTransaction(
         // limiting this agent to emit only 5 findings so that the alert feed is not spammed
         if (findingsCount >= 5) return [];
 
-        const findings = (
-            await Promise.all([
-                highValueEventAgent.handleTransaction(txEvent),
-            ])
-        ).flat();
+        const findings = await highValueEventAgent.handleTransaction(txEvent);
 
         findingsCount += findings.length;
         return findings;
