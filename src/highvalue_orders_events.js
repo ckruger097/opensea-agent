@@ -1,4 +1,4 @@
-import BigNumber from "bignumber.js";
+const BigNumber = require("bignumber.js");
 
 const { Finding, FindingSeverity, FindingType } = require("forta-agent");
 const {
@@ -21,7 +21,7 @@ function providerEventTransaction(highvalueThreshold) {
 
         highValueNFTSaleEvent.forEach((highValueNFTSale) => {
             const salePrice = new BigNumber(
-                highValueNFTSale.args.value.toString()
+                highValueNFTSale.args.price.toString()
             ).dividedBy(10 ** ETH_DECIMALS);
 
             if (salePrice.isLessThan(HIGHVALUE_THRESHOLD)) return;
@@ -31,7 +31,7 @@ function providerEventTransaction(highvalueThreshold) {
                 Finding.fromObject({
                     name: "High Value NFT Sale",
                     description: `${formattedAmount} ETH sale`,
-                    alertID: "FORTA-99",
+                    alertId: "FORTA-99",
                     severity: FindingSeverity.Info,
                     type: FindingType.Info,
                     metadata: {
